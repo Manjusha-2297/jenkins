@@ -36,12 +36,12 @@ pipeline {
     post {
         success {
 
-            slackSend channel: '#random', color: 'green', message: 'SUCCESS'
+            slackSend color: "good", message: "Message from Jenkins Pipeline"
         }
 
         failure {
 
-            slackSend channel: '#random', color: 'red', message: 'FAILURE'
+            slackSend color: "danger", message: "FAILURE"
         }
 
 
