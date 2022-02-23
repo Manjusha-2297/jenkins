@@ -26,7 +26,7 @@ pipelineJob('CI-Pipelines/frontend') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'('https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/frontend')
+            'url'('https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/frontend')
           }
         }
         'branches' {
