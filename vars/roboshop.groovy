@@ -15,7 +15,6 @@ def call(String AGENT, String COMPONENT){
                     anyOf {
                         expression { COMPONENT == "JAVA" }
                     }
-
                 }
                 steps {
                     sh 'echo nothing to do for compilation'
