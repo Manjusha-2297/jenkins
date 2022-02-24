@@ -36,10 +36,10 @@ def call(String AGENT, String COMPONENT){
 
             stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded
                 steps {
-                    sh """""
+                    sh """
                  cd static
                  zip -r ${COMPONENT}.zip *
-               """""
+               """
                 }
             }
 
