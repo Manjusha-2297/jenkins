@@ -4,7 +4,7 @@ def call(String AGENT){
 
         agent {
             node {
-                label ${AGENT}
+                label "${AGENT}"
             }
         }
 
