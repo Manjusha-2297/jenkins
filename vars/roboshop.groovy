@@ -51,6 +51,7 @@ def call(String AGENT, String COMPONENT){
         }
 
         post {
+            // Clean after build
             always {
                 cleanWs()
             }
