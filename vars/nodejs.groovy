@@ -22,7 +22,7 @@ def call(String COMPONENT){
 
             stage('check code quality') {
                 steps {
-                    sh "sonar-quality-gate.sh admin admin123 172.31.29.53 ${COMPONENT}"
+                    sh "sonar-quality-gate.sh admin admin123 172.31.19.162 ${COMPONENT}"
                 }
             }
 
