@@ -8,7 +8,7 @@ def call(String COMPONENT){
             }
         }
         environment {
-            sonar_token = credential{'sonar_token'}
+            sonar_token = credentials{'sonar_token'}
         }
         stages {
 
