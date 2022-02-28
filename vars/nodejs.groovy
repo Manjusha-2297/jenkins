@@ -7,7 +7,7 @@ def call(String COMPONENT){
                 label "NODEJS"
             }
         }
-        environmet {
+        environment {
             sonar_token = credential{'sonar_token'}
         }
         stages {
