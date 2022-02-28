@@ -7,12 +7,16 @@ def call(String COMPONENT){
                 label "NODEJS"
             }
         }
-
+        environmet {
+            sonar_token = credential{'sonar_token'}
+        }
         stages {
 
             stage('Check code quality') {
                 steps {
-                    echo 'code quality'
+                    sh """
+                    sonar-scanner -Dsonar.projectKey=${COMPONENT} -Dsonar.sources=. -Dsonar.host.url=http://172.31.19.162:9000 -Dsonar.login=${sonar_token}
+                  """
                 }
             }
 
