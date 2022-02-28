@@ -32,7 +32,7 @@ def call(String COMPONENT){
             stage('link checks'){
                 steps {
                    // echo 'Link Checks'
-                   sh 'node_modules/eslint/bin/eslint.js .'
+                   sh '/home/centos/node_modules/eslint/bin/eslint.js .'
                 }
             }
 
