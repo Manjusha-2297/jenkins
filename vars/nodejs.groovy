@@ -10,6 +10,9 @@ def call(String COMPONENT){
         environment {
             sonar_token = credentials('sonar_token')
         }
+
+        triggers { pollSCM('H/2 * * * 1-5') } // auto triggering if there is any change
+
         stages {
 
             stage('Submit code quality') {
