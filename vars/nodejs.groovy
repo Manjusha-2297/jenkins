@@ -50,7 +50,8 @@ def call(String COMPONENT){
                 when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     sh """
-                 cd static
+                 npm install
+                 VERSION= `echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
                  zip -r ${COMPONENT}.zip *
                """
                 }
