@@ -9,6 +9,7 @@ def call(String COMPONENT){
         }
         environment {
             sonar_token = credentials('sonar_token')
+            NEXUS = credentials('NEXUS')
         }
 
        // triggers { pollSCM('H/2 * * * 1-5') } // auto triggering if there is any change
