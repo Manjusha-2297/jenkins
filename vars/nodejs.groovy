@@ -42,7 +42,7 @@ def call(String COMPONENT){
                 }
             }
 
-            stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded
+            stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded and run when tag get created
                 steps {
                     sh """
                  cd static
