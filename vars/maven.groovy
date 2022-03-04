@@ -47,15 +47,19 @@ def call(String COMPONENT){
             }
 
             stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded
+                when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     sh """
-                 cd static
-                 zip -r ${COMPONENT}.zip *
+                 mvn clean package
+                 mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+                 VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
+                 zip -r ${COMPONENT}-\${VERSION}-.zip *
                """
                 }
             }
 
             stage('Publish artifacts'){
+                when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     echo 'Publish artifacts'
                 }
