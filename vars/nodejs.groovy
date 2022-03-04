@@ -65,7 +65,7 @@ def call(String COMPONENT){
                 when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     sh """
-                     VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \\$NF}'`
+                     VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
                      curl -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.15.180:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip
                      """
                 }
