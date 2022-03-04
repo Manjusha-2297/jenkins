@@ -11,7 +11,7 @@ def call(String COMPONENT){
             sonar_token = credentials('sonar_token')
         }
 
-        triggers { pollSCM('H/2 * * * 1-5') } // auto triggering if there is any change
+       // triggers { pollSCM('H/2 * * * 1-5') } // auto triggering if there is any change
 
         stages {
 
