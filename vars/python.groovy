@@ -44,8 +44,8 @@ def call(String COMPONENT){
             stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded
                 steps {
                     sh """
-                 cd static
-                 zip -r ${COMPONENT}.zip *
+                 VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
+                 zip -r ${COMPONENT}-\${VERSION}-.zip * *.ini *.py requirements.txt
                """
                 }
             }
