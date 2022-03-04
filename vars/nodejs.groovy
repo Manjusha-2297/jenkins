@@ -51,7 +51,7 @@ def call(String COMPONENT){
                 steps {
                     sh """
                  npm install
-                 VERSION= `echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
+                 VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
                  zip -r ${COMPONENT}.zip *
                """
                 }
