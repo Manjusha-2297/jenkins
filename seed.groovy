@@ -33,9 +33,13 @@ for(int i in 0..count) {
           'userRemoteConfigs' {
             'hudson.plugins.git.UserRemoteConfig' {
               'url'("https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/${j}")
+              'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
             }
           }
           'branches' {
+            'hudson.plugins.git.BranchSpec' {
+              'name'('**/tags/**')
+            }
             'hudson.plugins.git.BranchSpec' {
               'name'('*/main')
             }

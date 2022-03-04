@@ -44,7 +44,7 @@ def call(String COMPONENT){
             }
 
             stage('Prepare artifact') {// artifact is a piece getting ready for a file to get downloaded and run when tag get created
-                when { buildingTag() }
+                when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     sh """
                  cd static
@@ -54,7 +54,7 @@ def call(String COMPONENT){
             }
 
             stage('Publish artifacts'){
-                when { buildingTag() }
+                when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
                 steps {
                     echo 'Publish artifacts'
                 }
