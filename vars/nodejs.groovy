@@ -42,7 +42,8 @@ def call(String COMPONENT){
                 }
             }
 
-            stage('Prepare artifact') { // artifact is a piece getting ready for a file to get downloaded and run when tag get created
+            stage('Prepare artifact') {// artifact is a piece getting ready for a file to get downloaded and run when tag get created
+                when { buildingTag() }
                 steps {
                     sh """
                  cd static
@@ -52,6 +53,7 @@ def call(String COMPONENT){
             }
 
             stage('Publish artifacts'){
+                when { buildingTag() }
                 steps {
                     echo 'Publish artifacts'
                 }
