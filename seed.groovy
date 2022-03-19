@@ -51,3 +51,51 @@ for(int i in 0..count) {
     }
   }
 }
+
+folder('Mutable') {
+  displayName('Mutable')
+  description('Mutable')
+}
+
+pipelineJob("Mutable/vpc") {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
+      'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'("https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/terraform-mutable")
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('vpc/jenkinsfile')
+      'lightweight'(true)
+    }
+  }
+}
+
+pipelineJob("Mutable/DB") {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
+      'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'("https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/terraform-mutable")
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('databases/jenkinsfile')
+      'lightweight'(true)
+    }
+  }
+}
+
