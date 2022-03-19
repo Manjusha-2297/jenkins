@@ -63,7 +63,7 @@ pipelineJob("Mutable/vpc") {
       'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'("https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/terraform-mutable")
+            'url'("https://github.com/Manjusha-2297/terraform-mutable.git")
           }
         }
         'branches' {
@@ -84,7 +84,7 @@ pipelineJob("Mutable/DB") {
       'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
-            'url'("https://manjusha9722@dev.azure.com/manjusha9722/DevOps/_git/terraform-mutable")
+            'url'("https://github.com/Manjusha-2297/terraform-mutable.git")
           }
         }
         'branches' {
