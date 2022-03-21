@@ -184,7 +184,7 @@ pipelineJob('Mutable/Create') {
           }
         }
       }
-      'scriptPath'('Jenkinsfile-create')
+      'scriptPath'('jenkinsfile-create')
       'lightweight'(true)
     }
   }
