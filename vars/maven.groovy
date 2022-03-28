@@ -69,6 +69,16 @@ def call(String COMPONENT){
 
                 }
             }
+
+            stage('Dev Deployment'){
+                when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
+                steps{
+                    sh """
+                        VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
+                      """
+                    build job: 'APPDeploy', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: 'dev'), string(name: 'APP_VERSION', value:"${VERSION}")]
+                }
+            }
         }
 
         post {
