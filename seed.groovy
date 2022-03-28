@@ -190,5 +190,26 @@ pipelineJob('Mutable/Create') {
   }
 }
 
+pipelineJob('AppDeploy') {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'('https://github.com/Manjusha-2297/terraform-mutable.git')
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('jenkinsfile-deploy')
+      'lightweight'(true)
+    }
+  }
+}
+
 
 
