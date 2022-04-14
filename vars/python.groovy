@@ -47,7 +47,7 @@ def call(String COMPONENT){
                 steps {
                     sh """
                  VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
-                 zip -r ${COMPONENT}-\${VERSION}-.zip * *.ini *.py requirements.txt
+                 zip -r ${COMPONENT}-\${VERSION}.zip * *.ini *.py requirements.txt
                """
                 }
             }
