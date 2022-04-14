@@ -54,7 +54,7 @@ def call(String COMPONENT){
                  mvn clean package
                  mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
                  VERSION=`echo ${GIT_BRANCH}|awk -F / '{print \$NF}'`
-                 zip -r ${COMPONENT}-\${VERSION}-.zip *
+                 zip -r ${COMPONENT}-\${VERSION}.zip *
                """
                 }
             }
